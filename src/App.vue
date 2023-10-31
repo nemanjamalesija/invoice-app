@@ -1,5 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { BeakerIcon } from '@heroicons/vue/24/solid'
+</script>
 
 <template>
-  <h1 class="text-red-500">Hello</h1>
+  <BeakerIcon class="h-6 w-6 text-blue-500" />
 </template>
