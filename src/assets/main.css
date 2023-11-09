@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  transition:
+    background-color 0.3s ease 0s,
+    border 0.3s ease 0s;
+}
+
 body {
-  background-color: #fafafa;
+  background-color: #fff;
+  font-family: Poppins, sans-serif;
+  color: #374151;
+  transition:
+    color 0.3s ease 0s,
+    background-color 0.3s ease 0s;
+  min-height: 100vh;
+  line-height: 1.5;
+  font-size: 1.1rem;
 }

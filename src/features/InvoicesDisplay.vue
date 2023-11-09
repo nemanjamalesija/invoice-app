@@ -10,11 +10,17 @@ const { isLoading, invoices } = useInvoices();
 
 <template>
   <LoadingSpinner v-if="isLoading" />
+  <div class="col-start-2 grid items-center bg-red-500">
+    <HeaderInvoices v-if="invoices" :totalInvoices="invoices.length" />
 
-  <HeaderInvoices v-if="invoices" :totalInvoices="invoices.length" />
-  <EmptyHomePage />
+    <main class="pt-10 px-12 pb-20" v-if="invoices">
+      <EmptyHomePage v-if="invoices.length === 0" />
 
-  <!-- <main v-if="invoices && invoices.length > 0">
-    <SingleInvoice v-for="invoice in invoices" :key="invoice.id" :invoice="invoice" />
-  </main> -->
+      <div v-if="invoices.length === 0">
+        <SingleInvoice v-for="invoice in invoices" :key="invoice.id" :invoice="invoice" />
+      </div>
+    </main>
+  </div>
 </template>
+
+background-color: var(--color-grey-50); padding: 4rem 4.8rem 6.4rem; overflow: scroll;
