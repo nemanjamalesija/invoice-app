@@ -10,7 +10,7 @@ const { isLoading, invoices } = useInvoices();
 
 <template>
   <LoadingSpinner v-if="isLoading" />
-  <div class="col-start-2 grid items-center bg-red-500">
+  <div class="col-start-2 grid items-center h-[calc(100vh-90px)] bg-gray-50">
     <HeaderInvoices v-if="invoices" :totalInvoices="invoices.length" />
 
     <main class="pt-10 px-12 pb-20" v-if="invoices">
@@ -22,5 +22,3 @@ const { isLoading, invoices } = useInvoices();
     </main>
   </div>
 </template>
-
-background-color: var(--color-grey-50); padding: 4rem 4.8rem 6.4rem; overflow: scroll;

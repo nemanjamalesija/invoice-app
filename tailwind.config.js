@@ -1,8 +1,13 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Configuration} */
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        'gray-0': '#18212f',
+        'gray-50': '#111827'
+      }
+    }
   },
   plugins: []
-}
+};

@@ -14,9 +14,9 @@
 }
 
 body {
-  background-color: #fff;
+  background-color: #f8f8fb;
   font-family: Poppins, sans-serif;
-  color: #374151;
+  color: #e5e7eb;
   transition:
     color 0.3s ease 0s,
     background-color 0.3s ease 0s;
