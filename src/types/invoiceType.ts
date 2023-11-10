@@ -2,7 +2,7 @@ import type { InvoiceItemsType } from './ItemType';
 
 export type InvoiceType = {
   id: number;
-  createdAt: string;
+  created_at: string;
   streetAdress: string;
   city: string;
   postCode: number;
