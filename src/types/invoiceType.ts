@@ -1,3 +1,5 @@
+import type { InvoiceItemsType } from './ItemType';
+
 export type InvoiceType = {
   id: number;
   createdAt: string;
@@ -7,6 +9,7 @@ export type InvoiceType = {
   country: string;
   clientName: string;
   clientEmail: string;
+  invoice_items: InvoiceItemsType;
   paymentDue: string;
   status: string;
   itemsId: string[];

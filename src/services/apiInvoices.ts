@@ -13,7 +13,9 @@ import supabase from './supabase';
 */
 
 export async function getInvoices() {
-  const { data, error } = await supabase.from('invoices').select('*');
+  const { data, error } = await supabase
+    .from('invoices')
+    .select('id, clientName, created_at, status, invoice_items:invoice_items(items("price"))');
 
   if (error) {
     console.error(error);
