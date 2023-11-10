@@ -1,16 +1,15 @@
-import type { InvoiceItemsType } from './ItemType';
+type InvoiceItemType = { items: { price: number } };
 
 export type InvoiceType = {
   id: number;
   created_at: string;
-  streetAdress: string;
-  city: string;
-  postCode: number;
-  country: string;
+  streetAdress?: string;
+  city?: string;
+  postCode?: number;
+  country?: string;
   clientName: string;
   clientEmail: string;
-  invoice_items: InvoiceItemsType;
+  invoice_items: InvoiceItemType[];
   paymentDue: string;
   status: string;
-  itemsId: string[];
 };
