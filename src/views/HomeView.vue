@@ -5,7 +5,7 @@ import HeaderLayout from '../ui/HeaderLayout.vue';
 </script>
 
 <template>
-  <div class="grid grid-cols-[100px,1fr] grid-rows-[auto,1fr]">
+  <div class="grid grid-cols-[240px,1fr] grid-rows-[auto,1fr]">
     <HeaderLayout />
     <InvoicesDisplay />
     <SidebarV />

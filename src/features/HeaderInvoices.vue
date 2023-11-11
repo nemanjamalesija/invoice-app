@@ -5,9 +5,8 @@ const props = defineProps<{ totalInvoices: number }>();
 </script>
 
 <template>
-  <header>
-    <h1>Invoices</h1>
-    <p>There are {{ props.totalInvoices }} total invoices</p>
+  <header class="flex items-center justify-between mb-6">
+    <h1 class="text-3xl font-semibold">Invoices</h1>
     <FilterInvoices />
   </header>
 </template>
