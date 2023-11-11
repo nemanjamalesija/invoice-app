@@ -17,7 +17,7 @@ console.log(invoices);
       <EmptyHomePage v-if="invoices.length === 0" />
       <HeaderInvoices :totalInvoices="invoices.length" />
 
-      <div class="border-[1px] border-gray-100/20 flex flex-col rounded-sm bg-gray-0">
+      <div class="border-[1px] border-gray-100/20 flex flex-col rounded-md bg-gray-0">
         <SingleInvoice v-for="invoice in invoices" :key="invoice.id" :invoice="invoice" />
       </div>
     </main>

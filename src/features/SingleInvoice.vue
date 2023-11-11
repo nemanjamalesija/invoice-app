@@ -48,7 +48,7 @@ const statusBaseStyle =
 
     <span :class="statusBgStyle + statusBaseStyle">{{ props.invoice.status }}</span>
 
-    <span class=""><EllipsisHorizontalIcon class="h-8 w-8 text-white cursor-pointer" /></span>
+    <button class=""><EllipsisHorizontalIcon class="h-8 w-8 text-white" /></button>
   </article>
 </template>
 
