@@ -3,6 +3,7 @@ import { computed } from 'vue';
 import type { InvoiceType } from '../types/invoiceType';
 import { formatCurrency, formatDistanceFromNow } from '@/utils/helpers';
 import { format } from 'date-fns';
+import { EllipsisHorizontalIcon } from '@heroicons/vue/24/solid';
 
 // props
 const props = defineProps<{ invoice: InvoiceType }>();
@@ -12,11 +13,22 @@ const totalPrice = computed(() => {
     return acc + item.items.price;
   }, 0);
 });
+
+const statusBgStyle = computed(() => {
+  return props.invoice.status === 'Pending'
+    ? 'bg-amber-700'
+    : props.invoice.status === 'Canceled'
+    ? 'bg-red-700'
+    : 'bg-blue-100';
+});
+
+const statusBaseStyle =
+  ' text-xs font-semibold uppercase py-1 px-2 rounded-full flex justify-center items-center w-1/2';
 </script>
 
 <template>
   <article
-    class="grid grid-cols-[0.4fr,3fr,3fr,1.8fr,1.8fr,0.7fr] py-4 px-6 border-b border-gray-100/10 last:border-b-0 items-center"
+    class="grid grid-cols-[0.8fr,3fr,3fr,1.8fr,1.8fr,0.7fr] py-4 px-6 border-b border-gray-100/10 last:border-b-0 items-center"
   >
     <span class="font-bold"> #{{ props.invoice.id }}</span>
     <div class="flex flex-col gap-1">
@@ -34,9 +46,9 @@ const totalPrice = computed(() => {
     </div>
     <span class="font-medium price">{{ formatCurrency(totalPrice) }}</span>
 
-    <span class="">{{ props.invoice.status }}</span>
+    <span :class="statusBgStyle + statusBaseStyle">{{ props.invoice.status }}</span>
 
-    <span class="">See details</span>
+    <span class=""><EllipsisHorizontalIcon class="h-8 w-8 text-white cursor-pointer" /></span>
   </article>
 </template>
 
