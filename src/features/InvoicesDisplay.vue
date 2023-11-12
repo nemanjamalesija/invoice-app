@@ -6,8 +6,6 @@ import HeaderInvoices from './HeaderInvoices.vue';
 import EmptyHomePage from '@/ui/EmptyHomePage.vue';
 
 const { isLoading, invoices } = useInvoices();
-
-console.log(invoices);
 </script>
 
 <template>

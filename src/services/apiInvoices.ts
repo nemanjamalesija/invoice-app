@@ -12,12 +12,27 @@ import supabase from './supabase';
     .single();
 
 */
-export async function getInvoices(): Promise<InvoiceType[]> {
-  const { data, error } = await supabase
+
+// const querz = [
+//   { field: 'status', value: 'checked-in', method: 'eq' },
+//   { field: 'numNights', value: 1, method: 'gt' },
+// ];
+
+//   querz.forEach(
+//     async (q) => await query[q.method](q.field, q.value)
+//   );
+
+export async function getInvoices({ filter }): Promise<InvoiceType[]> {
+  let query = supabase
     .from('invoices')
     .select(
       'id, clientName, clientEmail, created_at, paymentDue, status, invoice_items:invoice_items(items("price"))'
     );
+
+  // FILTER
+  if (filter) query[filter.method || 'eq'](filter.field, filter.value);
+
+  const { data, error } = await query;
 
   if (error) {
     console.error(error);
