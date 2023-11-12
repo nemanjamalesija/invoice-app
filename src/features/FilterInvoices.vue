@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+const currentFilter = ref<string>('All');
 
-const route = useRoute();
 const router = useRouter();
 
-const handler = (value: string) => {
+const filterHandler = (value: string) => {
+  currentFilter.value = value;
   router.push({ path: '/', query: { status: value } });
 };
-
 const options = [{ value: 'All' }, { value: 'Paid' }, { value: 'Pending' }, { value: 'Canceled' }];
 </script>
 <template>
@@ -16,10 +17,10 @@ const options = [{ value: 'All' }, { value: 'Paid' }, { value: 'Pending' }, { va
       v-for="option in options"
       :key="option.value"
       :class="
-        (route.query.status === option.value && 'bg-indigo-600 py-1 px-4 rounded-md') ||
+        (currentFilter === option.value && 'bg-indigo-600 py-1 px-4 rounded-md') ||
         'py-1 px-4 rounded-md'
       "
-      @click="() => handler(option.value)"
+      @click="() => filterHandler(option.value)"
     >
       {{ option.value }}
     </button>

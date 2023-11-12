@@ -12,7 +12,6 @@ import supabase from './supabase';
     .single();
 
 */
-
 export async function getInvoices(): Promise<InvoiceType[]> {
   const { data, error } = await supabase
     .from('invoices')
@@ -25,6 +24,6 @@ export async function getInvoices(): Promise<InvoiceType[]> {
     throw new Error('Invoices with items could not be loaded');
   }
 
-  //@ts-ignore typec from supabase not inferred
+  //@ts-ignore types from supabase not inferred
   return data as InvoiceType[];
 }
