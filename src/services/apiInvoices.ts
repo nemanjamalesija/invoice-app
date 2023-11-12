@@ -1,5 +1,6 @@
 import type { InvoiceType } from '@/types/invoiceType';
 import supabase from './supabase';
+import type { Ref } from 'vue';
 
 /* 
   const { data, error } = await supabase
@@ -22,7 +23,14 @@ import supabase from './supabase';
 //     async (q) => await query[q.method](q.field, q.value)
 //   );
 
-export async function getInvoices({ filter }): Promise<InvoiceType[]> {
+type GetInvoicesParamsType = {
+  filter: {
+    field: string;
+    value: string;
+  } | null;
+};
+
+export async function getInvoices({ filter }: GetInvoicesParamsType): Promise<InvoiceType[]> {
   let query = supabase
     .from('invoices')
     .select(
@@ -30,7 +38,7 @@ export async function getInvoices({ filter }): Promise<InvoiceType[]> {
     );
 
   // FILTER
-  if (filter) query[filter.method || 'eq'](filter.field, filter.value);
+  if (filter) query.eq(filter.field, filter.value);
 
   const { data, error } = await query;
 

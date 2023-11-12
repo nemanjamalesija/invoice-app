@@ -1,14 +1,11 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
 import { useInvoicesStore } from '../stores/invoices';
 import { storeToRefs } from 'pinia';
 const { currentFilter } = storeToRefs(useInvoicesStore());
 const { setFilter } = useInvoicesStore();
-const router = useRouter();
 
 const filterHandler = (value: string) => {
   setFilter(value);
-  router.push({ path: '/', query: { status: value } });
 };
 const options = [{ value: 'All' }, { value: 'Paid' }, { value: 'Pending' }, { value: 'Canceled' }];
 </script>
