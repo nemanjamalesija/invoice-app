@@ -28,10 +28,19 @@ type GetInvoicesParamsType = {
     field: string;
     value: string;
   } | null;
+
+  sortBy: {
+    field: string;
+    direction: string;
+  };
 };
 
-export async function getInvoices({ filter }: GetInvoicesParamsType): Promise<InvoiceType[]> {
-  let query = supabase
+export async function getInvoices({
+  filter,
+  sortBy
+}: GetInvoicesParamsType): Promise<InvoiceType[]> {
+  console.log(sortBy);
+  const query = supabase
     .from('invoices')
     .select(
       'id, clientName, clientEmail, created_at, paymentDue, status, invoice_items:invoice_items(items("price"))'
@@ -39,6 +48,12 @@ export async function getInvoices({ filter }: GetInvoicesParamsType): Promise<In
 
   // FILTER
   if (filter) query.eq(filter.field, filter.value);
+
+  //SORT
+  if (sortBy)
+    query.order(sortBy.field, {
+      ascending: sortBy.direction === 'asc'
+    });
 
   const { data, error } = await query;
 

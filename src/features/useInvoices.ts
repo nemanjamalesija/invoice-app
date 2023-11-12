@@ -6,10 +6,11 @@ import { watch, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 export default function useInvoices() {
-  const { currentFilter } = storeToRefs(useInvoicesStore());
+  const { currentFilter, sortByRaw } = storeToRefs(useInvoicesStore());
   const filter =
     currentFilter.value === 'All' ? null : { field: 'status', value: currentFilter.value };
   const filterRef = ref(filter);
+  const sortByRef = ref({ field: 'paymentDue', direction: 'asc' });
   const router = useRouter();
 
   // FILTER
@@ -21,13 +22,33 @@ export default function useInvoices() {
     }
   );
 
+  // SORT
+
+  watch(
+    () => sortByRaw.value,
+    (n) => {
+      sortByRaw.value = n;
+      const [field, direction] = sortByRaw.value.split('-');
+      sortByRef.value.field = field;
+      sortByRef.value.direction = direction;
+
+      console.log(sortByRef.value);
+
+      router.push({ path: '/', query: { status: n } });
+    }
+  );
+
   const {
     isLoading,
     error,
     data: invoices
   } = useQuery({
-    queryKey: ['cabin', filterRef],
-    queryFn: () => getInvoices({ filter: filterRef.value })
+    queryKey: ['cabin', filterRef, sortByRef],
+    queryFn: () =>
+      getInvoices({
+        filter: filterRef.value,
+        sortBy: { field: sortByRef.value.field, direction: sortByRef.value.direction }
+      })
   });
 
   return { isLoading, invoices, error };
