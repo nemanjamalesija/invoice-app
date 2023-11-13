@@ -10,8 +10,11 @@ const { isLoading, invoices } = useInvoices();
 
 <template>
   <LoadingSpinner v-if="isLoading" />
-  <div class="col-start-2 grid h-[calc(100vh-90px)] bg-gray-50">
-    <main class="pt-12 px-20 pb-20" v-if="invoices">
+  <div
+    v-if="invoices"
+    class="pt-12 px-20 pb-20 col-start-2 grid h-[calc(100vh-90px)] overflow-y-scroll bg-gray-50"
+  >
+    <main>
       <EmptyHomePage v-if="invoices.length === 0" />
       <HeaderInvoices :totalInvoices="invoices.length" />
 

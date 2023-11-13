@@ -43,7 +43,7 @@ export default function useInvoices() {
     error,
     data: invoices
   } = useQuery({
-    queryKey: ['cabin', filterRef, sortByRef],
+    queryKey: ['invoices', filterRef, sortByRef],
     queryFn: () =>
       getInvoices({
         filter: filterRef.value,
