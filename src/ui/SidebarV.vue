@@ -4,7 +4,7 @@ import { UserCircleIcon } from '@heroicons/vue/24/solid';
 </script>
 <template>
   <aside
-    class="row-start-1 row-end-[-1] col-start-1 grid grid-rows-[90px,1fr,90px,180px] bg-gray-0 w-full"
+    class="row-start-1 row-end-[-1] col-start-1 grid grid-rows-[90px,1fr,90px,180px] bg-gray-0 w-full pb-5"
   >
     <div class="flex items-center justify-center bg-indigo-600 rounded-tr-3xl">
       <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
