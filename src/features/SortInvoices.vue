@@ -8,8 +8,8 @@ const handleSetSortRaw = (event) => {
 };
 
 const options = [
-  { value: 'paymentDue-asc', label: 'Sort by date (low first)' },
-  { value: 'paymentDue-desc', label: 'Sort by date (high first)' },
+  { value: 'paymentDue-asc', label: 'Sort by date (earliest first)' },
+  { value: 'paymentDue-desc', label: 'Sort by date (recent first)' },
   { value: 'clientName-asc', label: 'Sort by name (A-Z)' },
   { value: 'clientName-desc', label: 'Sort by name (Z-A)' }
 ];

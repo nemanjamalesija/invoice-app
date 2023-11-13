@@ -10,7 +10,7 @@ export const invoices = [
   {
     id: 1,
     created_at: fromToday(-18, true),
-    paymentDue: fromToday(-4),
+    paymentDue: fromToday(-6),
     streetAdress: '765 Krakowskie Przedmieście',
     city: 'Warsaw',
     postCode: 6200,
@@ -23,12 +23,12 @@ export const invoices = [
     id: 2,
     created_at: fromToday(-20, true),
     paymentDue: fromToday(0),
-    streetAdress: '123 Main St',
-    city: 'City1',
+    streetAdress: '1 Place Plume',
+    city: 'Strasbourg',
     postCode: 12345,
     country: 'Country1',
-    clientName: 'ClientName1',
-    clientEmail: 'client1@email.com',
+    clientName: 'Elisa Vincent',
+    clientEmail: 'vincent.fr@email.com',
     status: 'Paid'
   },
   {
@@ -66,12 +66,12 @@ export const invoices = [
     country: 'UK',
     clientName: 'Michael Brown',
     clientEmail: 'michael.brown@email.com',
-    status: 'Cancelled'
+    status: 'Paid'
   },
 
   {
     id: 6,
-    created_at: fromToday(-45, true),
+    created_at: fromToday(-45),
     paymentDue: fromToday(-45),
     streetAdress: '321 Pine St',
     city: 'Paris',
@@ -79,19 +79,19 @@ export const invoices = [
     country: 'France',
     clientName: 'Sophie Martin',
     clientEmail: 'sophie.martin@email.com',
-    status: 'Paid'
+    status: 'Cancelled'
   },
   {
     id: 7,
-    created_at: fromToday(-2, true),
+    created_at: fromToday(-27, true),
     paymentDue: fromToday(15),
     streetAdress: '789 Oak St',
     city: 'London',
     postCode: 1243,
     country: 'UK',
-    clientName: 'Michael Brown',
-    clientEmail: 'michael.brown@email.com',
-    status: 'Cancelled'
+    clientName: 'Manny Pedrossi',
+    clientEmail: 'pedrossi.manny@email.com',
+    status: 'Pending'
   },
   {
     id: 8,
@@ -122,7 +122,7 @@ export const invoices = [
   {
     id: 10,
     created_at: fromToday(-30, true),
-    paymentDue: fromToday(-4),
+    paymentDue: fromToday(-9),
     streetAdress: '123 Rosenstrasse',
     city: 'Berlin',
     postCode: 63312,
@@ -148,14 +148,14 @@ export const invoices = [
   {
     id: 12,
     created_at: fromToday(-6, true),
-    paymentDue: fromToday(-6),
+    paymentDue: fromToday(-1),
     streetAdress: '567 Keizersgracht',
     city: 'Amsterdam',
     postCode: 22221,
     country: 'Netherlands',
     clientName: 'Anna van den Berg',
     clientEmail: 'anna.vandenberg@email.com',
-    status: 'Pending'
+    status: 'Cancelled'
   },
 
   {

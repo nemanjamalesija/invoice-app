@@ -17,7 +17,7 @@ const totalPrice = computed(() => {
 const statusBgStyle = computed(() => {
   return props.invoice.status === 'Pending'
     ? 'bg-amber-700'
-    : props.invoice.status === 'Canceled'
+    : props.invoice.status === 'Cancelled'
     ? 'bg-red-700'
     : 'bg-blue-100';
 });
