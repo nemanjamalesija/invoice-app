@@ -3,7 +3,7 @@ import { useInvoicesStore } from '@/stores/invoices';
 
 const { setSortByRaw } = useInvoicesStore();
 
-const handleSetSortRaw = (event) => {
+const handleSetSortRaw = (event: any) => {
   setSortByRaw(event.target.value);
 };
 

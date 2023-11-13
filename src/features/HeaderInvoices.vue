@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import FilterInvoices from '@/features/FilterInvoices.vue';
 import SortInvoices from './SortInvoices.vue';
-
-const props = defineProps<{ totalInvoices: number }>();
 </script>
 
 <template>

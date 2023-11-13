@@ -14,13 +14,14 @@
 }
 
 body {
-  background-color: #f8f8fb;
   font-family: Poppins, sans-serif;
   color: #e5e7eb;
   transition:
     color 0.3s ease 0s,
     background-color 0.3s ease 0s;
-  min-height: 100vh;
+
   line-height: 1.5;
   font-size: 1rem;
+  background-color: #111827;
+  overflow-y: hidden;
 }

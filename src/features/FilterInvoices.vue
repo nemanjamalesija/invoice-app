@@ -7,7 +7,7 @@ const { setFilter } = useInvoicesStore();
 const filterHandler = (value: string) => {
   setFilter(value);
 };
-const options = [{ value: 'All' }, { value: 'Paid' }, { value: 'Pending' }, { value: 'Canceled' }];
+const options = [{ value: 'All' }, { value: 'Paid' }, { value: 'Pending' }, { value: 'Cancelled' }];
 </script>
 <template>
   <div class="flex bg-gray-0 rounded-md gap-1 font-medium text-sm p-2">
