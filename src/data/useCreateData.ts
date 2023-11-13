@@ -53,16 +53,16 @@ async function createInvoiceItems() {
   }
 }
 
-async function uploadData() {
+async function uploadDataHelper() {
   const { error } = await createInvoices();
   if (!error) await createInvoiceItems();
 }
 
-export default function useCreateData() {
+export default function useCreateData(): any {
   const queryClient = useQueryClient();
 
-  const { mutate: createData } = useMutation({
-    mutationFn: uploadData,
+  const { isPending: isCreating, mutate: createData } = useMutation({
+    mutationFn: uploadDataHelper,
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ['invoices']
@@ -71,5 +71,5 @@ export default function useCreateData() {
     onError: (err) => console.log(err.message)
   });
 
-  return { createData };
+  return { isCreating, createData };
 }
