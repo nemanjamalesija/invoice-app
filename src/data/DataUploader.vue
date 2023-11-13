@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ActionButton from '@/ui/ActionButton.vue';
 import useCreateData from './useCreateData';
 import useDeleteData from './useDeleteData';
 
@@ -6,8 +7,25 @@ const { isCreating, createData } = useCreateData();
 const { isDeleting, deleteData } = useDeleteData();
 </script>
 <template>
-  <div class="bg-white text-indigo-600 flex gap-4">
-    <button :disabled="isDeleting" class="" @click="deleteData">Delete</button>
-    <button :disabled="isCreating" class="" @click="createData">Upload</button>
+  <div class="px-2 rounded-md">
+    <div
+      class="uppercase bg-gray-50 pt-2 pb-4 border-zinc-300 flex flex-col items-center justify-center gap-2"
+    >
+      <h3 class="mb-2 font-bold">Sample data</h3>
+      <ActionButton
+        text="delete invoices"
+        type="sidebar"
+        :disabled="isDeleting"
+        @click="deleteData"
+      >
+      </ActionButton>
+      <ActionButton
+        text="upload invoices"
+        type="sidebar"
+        :disabled="isCreating"
+        @click="createData"
+      >
+      </ActionButton>
+    </div>
   </div>
 </template>
