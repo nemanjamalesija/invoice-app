@@ -2,7 +2,6 @@
 import useInvoices from './useInvoices';
 import LoadingSpinner from '../ui/LoadingSpinner.vue';
 import SingleInvoice from './SingleInvoice.vue';
-import HeaderInvoices from './HeaderInvoices.vue';
 import EmptyHomePage from '@/ui/EmptyHomePage.vue';
 
 const { isLoading, invoices } = useInvoices();
