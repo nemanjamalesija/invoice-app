@@ -4,18 +4,18 @@ import { PencilIcon } from '@heroicons/vue/24/solid';
 import { EyeIcon } from '@heroicons/vue/24/solid';
 </script>
 <template>
-  <ul class="bg-white">
-    <button class="flex items-center gap-1 flex-nowrap">
-      <EyeIcon class="h-5 w-5" />
-      <span class="text-xs whitespace-nowrap">See details</span>
+  <ul class="bg-gray-0 shadow-2xl rounded-md absolute top-1-2 right-10 z-50">
+    <button class="flex items-center gap-4 py-2 px-4 hover:bg-gray-50 w-full">
+      <EyeIcon class="h-4 w-4" />
+      <span class="text-sm whitespace-nowrap">See details</span>
     </button>
-    <button class="flex items-center gap-1">
-      <TrashIcon class="h-5 w-5" />
-      <span class="text-xs whitespace-nowrap">Edit invoice</span>
+    <button class="flex items-center gap-4 py-2 px-4 hover:bg-gray-50 w-full">
+      <TrashIcon class="h-4 w-4" />
+      <span class="text-sm whitespace-nowrap">Edit invoice</span>
     </button>
-    <button class="flex items-center gap-1">
-      <PencilIcon class="h-5 w-5" />
-      <span class="text-xs whitespace-nowrap">Delete invoice</span>
+    <button class="flex items-center gap-4 py-2 px-4 hover:bg-gray-50 w-full">
+      <PencilIcon class="h-4 w-4" />
+      <span class="text-sm whitespace-nowrap">Delete invoice</span>
     </button>
   </ul>
 </template>

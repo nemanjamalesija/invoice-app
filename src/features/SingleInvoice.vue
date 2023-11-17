@@ -5,9 +5,11 @@ import { formatCurrency, formatDistanceFromNow } from '@/utils/helpers';
 import { format } from 'date-fns';
 import { EllipsisHorizontalIcon } from '@heroicons/vue/24/solid';
 import EditDeleteModal from './EditDeleteModal.vue';
+import { ref } from 'vue';
 
 // props
 const props = defineProps<{ invoice: InvoiceType }>();
+const openInvoiceID = ref<number>(0);
 
 const totalPrice = computed(() => {
   return props.invoice.invoice_items.reduce((acc, item) => {
@@ -25,11 +27,15 @@ const statusBgStyle = computed(() => {
 
 const statusBaseStyle =
   ' text-xs font-semibold uppercase py-1 px-2 rounded-full flex justify-center items-center w-1/2';
+
+const open = () => {
+  openInvoiceID.value = props.invoice.id;
+};
 </script>
 
 <template>
   <article
-    class="grid grid-cols-[0.8fr,3fr,3fr,1.8fr,1.8fr,0.7fr] py-4 px-6 border-b border-gray-100/10 last:border-b-0 items-center"
+    class="relative grid grid-cols-[0.8fr,3fr,3fr,1.8fr,1.8fr,0.2fr] py-4 px-6 border-b border-gray-100/10 last:border-b-0 items-center"
   >
     <span class="font-bold"> #{{ props.invoice.id }}</span>
     <div class="flex flex-col gap-1">
@@ -49,9 +55,9 @@ const statusBaseStyle =
 
     <span :class="statusBgStyle + statusBaseStyle">{{ props.invoice.status }}</span>
 
-    <button class="">
+    <button class="" @click="open">
       <EllipsisHorizontalIcon class="h-8 w-8 text-white" />
-      <EditDeleteModal />
+      <EditDeleteModal v-if="openInvoiceID === props.invoice.id" />
     </button>
   </article>
 </template>
