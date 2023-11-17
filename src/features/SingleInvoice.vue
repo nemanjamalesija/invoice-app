@@ -4,6 +4,7 @@ import type { InvoiceType } from '../types/invoiceType';
 import { formatCurrency, formatDistanceFromNow } from '@/utils/helpers';
 import { format } from 'date-fns';
 import { EllipsisHorizontalIcon } from '@heroicons/vue/24/solid';
+import EditDeleteModal from './EditDeleteModal.vue';
 
 // props
 const props = defineProps<{ invoice: InvoiceType }>();
@@ -48,7 +49,10 @@ const statusBaseStyle =
 
     <span :class="statusBgStyle + statusBaseStyle">{{ props.invoice.status }}</span>
 
-    <button class=""><EllipsisHorizontalIcon class="h-8 w-8 text-white" /></button>
+    <button class="">
+      <EllipsisHorizontalIcon class="h-8 w-8 text-white" />
+      <EditDeleteModal />
+    </button>
   </article>
 </template>
 

@@ -39,7 +39,6 @@ export async function getInvoices({
   filter,
   sortBy
 }: GetInvoicesParamsType): Promise<InvoiceType[]> {
-  console.log(sortBy);
   const query = supabase
     .from('invoices')
     .select(
