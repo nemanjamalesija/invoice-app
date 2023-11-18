@@ -3,13 +3,10 @@ import { computed } from 'vue';
 import type { InvoiceType } from '../types/invoiceType';
 import { formatCurrency, formatDistanceFromNow } from '@/utils/helpers';
 import { format } from 'date-fns';
-import { EllipsisHorizontalIcon } from '@heroicons/vue/24/solid';
-import EditDeleteModal from './EditDeleteModal.vue';
-import { ref } from 'vue';
+import ExtraActionsButton from './ExtraActionsButton.vue';
 
 // props
 const props = defineProps<{ invoice: InvoiceType }>();
-const openInvoiceID = ref<number>(0);
 
 const totalPrice = computed(() => {
   return props.invoice.invoice_items.reduce((acc, item) => {
@@ -27,10 +24,6 @@ const statusBgStyle = computed(() => {
 
 const statusBaseStyle =
   ' text-xs font-semibold uppercase py-1 px-2 rounded-full flex justify-center items-center w-1/2';
-
-const open = () => {
-  openInvoiceID.value = props.invoice.id;
-};
 </script>
 
 <template>
@@ -55,10 +48,7 @@ const open = () => {
 
     <span :class="statusBgStyle + statusBaseStyle">{{ props.invoice.status }}</span>
 
-    <button class="" @click="open">
-      <EllipsisHorizontalIcon class="h-8 w-8 text-white" />
-      <EditDeleteModal v-if="openInvoiceID === props.invoice.id" />
-    </button>
+    <ExtraActionsButton />
   </article>
 </template>
 
