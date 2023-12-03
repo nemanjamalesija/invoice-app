@@ -66,12 +66,14 @@ export async function getInvoices({
 }
 
 export async function deleteInvoice(invoiceId: number) {
-  const { error } = await supabase.from('invoices').delete().eq('id', invoiceId);
+  const { error: errorInvoiceItems } = await supabase
+    .from('invoice_items')
+    .delete()
+    .eq('invoiceID', invoiceId);
 
-  await supabase.from('invoice_items').delete().eq('invoiceID', invoiceId);
+  const { error: errorItems } = await supabase.from('invoices').delete().eq('id', invoiceId);
 
-  if (error) {
-    console.error(error);
+  if (errorInvoiceItems || errorItems) {
     throw new Error('Invoice could not be deleted');
   }
 }

@@ -5,7 +5,10 @@
       <span class="text-sm whitespace-nowrap">See details</span>
     </button>
 
-    <button class="flex items-center gap-4 py-2 px-4 hover:bg-gray-50 w-full">
+    <button
+      class="flex items-center gap-4 py-2 px-4 hover:bg-gray-50 w-full"
+      :disabled="isDeleting"
+    >
       <TrashIcon class="h-4 w-4" />
       <span class="text-sm whitespace-nowrap">Edit invoice</span>
     </button>
@@ -28,7 +31,6 @@ import { inject } from 'vue';
 
 const invoiceId = inject('invoiceId');
 const handleDeleteInvoice = () => {
-  deleteInvoice(invoiceId);
+  deleteInvoice(invoiceId as number);
 };
 </script>
-./useDeleteInvoice

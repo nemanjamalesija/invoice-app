@@ -1,38 +1,22 @@
 import { useMutation, useQueryClient } from '@tanstack/vue-query';
 import { deleteInvoice as deleteInvoiceAPI } from '@/services/apiInvoices';
 import { useToast } from 'primevue/usetoast';
+import { showError, showSuccess } from '@/utils/helpers';
 
-export default function useDeleteInvoice() {
+export default function useDeleteInvoice(): any {
   const queryClient = useQueryClient();
   const toast = useToast();
-  const showSuccess = () => {
-    toast.add({
-      severity: 'info',
-      summary: 'Success',
-      detail: 'Cabin successfully deleted',
-      life: 3000
-    });
-  };
-
-  const showError = () => {
-    toast.add({
-      severity: 'error',
-      summary: 'Error',
-      detail: 'Could not delete the cabin.',
-      life: 3000
-    });
-  };
 
   const { isPending: isDeleting, mutate: deleteInvoice } = useMutation({
     mutationFn: deleteInvoiceAPI,
     onSuccess: () => {
-      showSuccess();
+      showSuccess(toast, 'Invoice successfully deleted');
 
       queryClient.invalidateQueries({
         queryKey: ['invoices']
       });
     },
-    onError: (err) => showError()
+    onError: (err) => showError(toast, err.message)
   });
 
   return { isDeleting, deleteInvoice };

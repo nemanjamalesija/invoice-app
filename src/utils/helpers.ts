@@ -29,3 +29,22 @@ export const formatCurrency = (value: number) =>
     style: 'currency',
     currency: 'USD'
   }).format(value);
+
+/// toast
+
+export const showSuccess = (toast: any, message: string) => {
+  toast.add({
+    severity: 'success',
+    summary: 'Success',
+    detail: message,
+    life: 3000
+  });
+};
+export const showError = (toast: any, message: string) => {
+  toast.add({
+    severity: 'error',
+    summary: 'Error',
+    detail: message,
+    life: 3000
+  });
+};

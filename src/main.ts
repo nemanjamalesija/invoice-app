@@ -3,7 +3,7 @@ import { VueQueryPlugin } from '@tanstack/vue-query';
 
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
-import Toast from 'primevue/toast';
+import PrimeVue from 'primevue/config';
 import ToastService from 'primevue/toastservice';
 
 import App from './App.vue';
@@ -21,6 +21,7 @@ const vueQueryPluginOptions: VueQueryPluginOptions = {
   }
 };
 
+app.use(PrimeVue, { ripple: true });
 app.use(ToastService);
 app.use(createPinia());
 app.use(router);
