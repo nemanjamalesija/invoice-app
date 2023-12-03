@@ -12,7 +12,7 @@
 
     <button class="flex items-center gap-4 py-2 px-4 hover:bg-gray-50 w-full">
       <PencilIcon class="h-4 w-4" />
-      <span class="text-sm whitespace-nowrap">Delete invoice</span>
+      <span class="text-sm whitespace-nowrap" @click="handleDeleteInvoice">Delete invoice</span>
     </button>
   </ul>
 </template>
@@ -21,4 +21,14 @@
 import { TrashIcon } from '@heroicons/vue/24/solid';
 import { PencilIcon } from '@heroicons/vue/24/solid';
 import { EyeIcon } from '@heroicons/vue/24/solid';
+import useDeleteInvoice from './useDeleteInvoice';
+
+const { isDeleting, deleteInvoice } = useDeleteInvoice();
+import { inject } from 'vue';
+
+const invoiceId = inject('invoiceId');
+const handleDeleteInvoice = () => {
+  deleteInvoice(invoiceId);
+};
 </script>
+./useDeleteInvoice

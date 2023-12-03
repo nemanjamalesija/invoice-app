@@ -64,3 +64,14 @@ export async function getInvoices({
   //@ts-ignore types from supabase not inferred
   return data as InvoiceType[];
 }
+
+export async function deleteInvoice(invoiceId: number) {
+  const { error } = await supabase.from('invoices').delete().eq('id', invoiceId);
+
+  await supabase.from('invoice_items').delete().eq('invoiceID', invoiceId);
+
+  if (error) {
+    console.error(error);
+    throw new Error('Invoice could not be deleted');
+  }
+}

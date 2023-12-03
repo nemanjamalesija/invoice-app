@@ -4,9 +4,11 @@ import type { InvoiceType } from '../types/invoiceType';
 import { formatCurrency, formatDistanceFromNow } from '@/utils/helpers';
 import { format } from 'date-fns';
 import ExtraActionsButton from './ExtraActionsButton.vue';
+import { provide } from 'vue';
 
 // props
 const props = defineProps<{ invoice: InvoiceType }>();
+provide(/* key */ 'invoiceId', /* value */ props.invoice.id);
 
 const totalPrice = computed(() => {
   return props.invoice.invoice_items.reduce((acc, item) => {
