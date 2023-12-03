@@ -7,15 +7,13 @@ import { vOnClickOutside } from '@vueuse/components';
 const isOpen = ref(false);
 const toggled = ref(false);
 
-const closeElement = (ev) => {
+const closeElement = () => {
   if (toggled.value === true) {
     toggled.value = false;
     isOpen.value = false;
-    console.log(ev);
+
     return;
   } else isOpen.value = false;
-
-  console.log(ev);
 };
 
 const toggleElement = () => {
