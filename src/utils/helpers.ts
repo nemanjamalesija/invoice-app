@@ -34,7 +34,6 @@ export const formatCurrency = (value: number) =>
 
 export const showSuccess = (toast: any, message: string) => {
   toast.add({
-    severity: 'success',
     summary: 'Success',
     detail: message,
     life: 3000
@@ -42,7 +41,6 @@ export const showSuccess = (toast: any, message: string) => {
 };
 export const showError = (toast: any, message: string) => {
   toast.add({
-    severity: 'error',
     summary: 'Error',
     detail: message,
     life: 3000
