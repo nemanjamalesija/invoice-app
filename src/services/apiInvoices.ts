@@ -1,6 +1,6 @@
-import type { InvoiceType } from '@/types/invoiceType';
-import supabase from './supabase';
-import type { Ref } from 'vue';
+import type { InvoiceType } from "@/types/invoiceType";
+import supabase from "./supabase";
+import type { Ref } from "vue";
 
 /* 
   const { data, error } = await supabase
@@ -37,10 +37,10 @@ type GetInvoicesParamsType = {
 
 export async function getInvoices({
   filter,
-  sortBy
+  sortBy,
 }: GetInvoicesParamsType): Promise<InvoiceType[]> {
   const query = supabase
-    .from('invoices')
+    .from("invoices")
     .select(
       'id, clientName, clientEmail, created_at, paymentDue, status, invoice_items:invoice_items(items("price"))'
     );
@@ -51,14 +51,14 @@ export async function getInvoices({
   //SORT
   if (sortBy)
     query.order(sortBy.field, {
-      ascending: sortBy.direction === 'asc'
+      ascending: sortBy.direction === "asc",
     });
 
   const { data, error } = await query;
 
   if (error) {
     console.error(error);
-    throw new Error('Invoices with items could not be loaded');
+    throw new Error("Invoices with items could not be loaded");
   }
 
   //@ts-ignore types from supabase not inferred
@@ -67,13 +67,16 @@ export async function getInvoices({
 
 export async function deleteInvoice(invoiceId: number) {
   const { error: errorInvoiceItems } = await supabase
-    .from('invoice_items')
+    .from("invoice_items")
     .delete()
-    .eq('invoiceID', invoiceId);
+    .eq("invoiceID", invoiceId);
 
-  const { error: errorItems } = await supabase.from('invoices').delete().eq('id', invoiceId);
+  const { error: errorItems } = await supabase
+    .from("invoices")
+    .delete()
+    .eq("id", invoiceId);
 
   if (errorInvoiceItems || errorItems) {
-    throw new Error('Invoice could not be deleted');
+    throw new Error("Invoice could not be deleted");
   }
 }
