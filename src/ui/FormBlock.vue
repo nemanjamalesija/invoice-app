@@ -4,18 +4,19 @@ import FormLabel from "./FormLabel.vue";
 import FormInput from "./FormInput.vue";
 
 const props = defineProps<{
-  name: string;
+  labelName: string;
+  inputName: string;
 }>();
 
-const emit = defineEmits(["onLog"]);
+const emit = defineEmits(["onInput"]);
 
-const onInput = (val) => {
-  emit("onLog", val);
+const onInput = (key, val) => {
+  emit("onInput", key, val);
 };
 </script>
 <template>
   <div class="w-full flex flex-col">
-    <FormLabel :name="props.name" />
-    <FormInput @onInput="onInput" :name="props.name" />
+    <FormLabel :labelName="props.labelName" :inputName="props.inputName" />
+    <FormInput @onInput="onInput" :inputName="props.inputName" />
   </div>
 </template>

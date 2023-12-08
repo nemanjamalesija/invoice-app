@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import ActionButton from "@/ui/ActionButton.vue";
 import FormBlock from "@/ui/FormBlock.vue";
+import { ref } from "vue";
 
-const logger = (val) => {
-  console.log(val);
+const formInputsValues = ref({});
+
+const storeFormValujes = (key, val) => {
+  formInputsValues.value = { ...formInputsValues.value, [key]: val };
+
+  console.log(formInputsValues.value);
 };
 </script>
 
@@ -22,19 +27,51 @@ const logger = (val) => {
       />
     </div>
     <div class="flex items-center gap-5 mb-4">
-      <FormBlock @onLog="logger" name="Name" />
-      <FormBlock @onLog="logger" name="Email" />
+      <FormBlock
+        @onInput="storeFormValujes"
+        labelName="Name"
+        inputName="name"
+      />
+      <FormBlock
+        @onInput="storeFormValujes"
+        labelName="Email"
+        inputName="email"
+      />
     </div>
     <div class="flex items-center gap-5 mb-4">
-      <FormBlock @onLog="logger" name="Country" />
-      <FormBlock @onLog="logger" name="City" />
-      <FormBlock @onLog="logger" name="Post code" />
-      <FormBlock @onLog="logger" name="Street adress" />
+      <FormBlock
+        @onInput="storeFormValujes"
+        labelName="Country"
+        inputName="country"
+      />
+      <FormBlock
+        @onInput="storeFormValujes"
+        labelName="City"
+        inputName="city"
+      />
+      <FormBlock
+        @onInput="storeFormValujes"
+        labelName="Post code"
+        inputName="postCode"
+      />
+      <FormBlock
+        @onInput="storeFormValujes"
+        labelName="Street adress"
+        inputName="streetAdress"
+      />
     </div>
     <div class="flex gap-5 mb-4">
       <div class="w-full flex items-center justify-center gap-5">
-        <FormBlock @onLog="logger" name="Paymend due" />
-        <FormBlock @onLog="logger" name="Status" />
+        <FormBlock
+          @onInput="storeFormValujes"
+          labelName="Paymend due"
+          inputName="paymentDue"
+        />
+        <FormBlock
+          @onInput="storeFormValujes"
+          labelName="Status"
+          inputName="status"
+        />
       </div>
       <div class="w-full flex items-end">
         <ActionButton type="submit" text="Submit" layout="sidebar" />
