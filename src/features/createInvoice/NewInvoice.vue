@@ -5,10 +5,8 @@ import { ref } from "vue";
 
 const formInputsValues = ref({});
 
-const storeFormValujes = (key, val) => {
+const storeFormValues = (key, val) => {
   formInputsValues.value = { ...formInputsValues.value, [key]: val };
-
-  console.log(formInputsValues.value);
 };
 </script>
 
@@ -26,53 +24,49 @@ const storeFormValujes = (key, val) => {
         class="self-end text-xl font-semibold"
       />
     </div>
+
     <div class="flex items-center gap-5 mb-4">
+      <FormBlock @onInput="storeFormValues" labelName="Name" inputName="name" />
       <FormBlock
-        @onInput="storeFormValujes"
-        labelName="Name"
-        inputName="name"
-      />
-      <FormBlock
-        @onInput="storeFormValujes"
+        @onInput="storeFormValues"
         labelName="Email"
         inputName="email"
       />
     </div>
+
     <div class="flex items-center gap-5 mb-4">
       <FormBlock
-        @onInput="storeFormValujes"
+        @onInput="storeFormValues"
         labelName="Country"
         inputName="country"
       />
+      <FormBlock @onInput="storeFormValues" labelName="City" inputName="city" />
       <FormBlock
-        @onInput="storeFormValujes"
-        labelName="City"
-        inputName="city"
-      />
-      <FormBlock
-        @onInput="storeFormValujes"
+        @onInput="storeFormValues"
         labelName="Post code"
         inputName="postCode"
       />
       <FormBlock
-        @onInput="storeFormValujes"
+        @onInput="storeFormValues"
         labelName="Street adress"
         inputName="streetAdress"
       />
     </div>
+
     <div class="flex gap-5 mb-4">
       <div class="w-full flex items-center justify-center gap-5">
         <FormBlock
-          @onInput="storeFormValujes"
+          @onInput="storeFormValues"
           labelName="Paymend due"
           inputName="paymentDue"
         />
         <FormBlock
-          @onInput="storeFormValujes"
+          @onInput="storeFormValues"
           labelName="Status"
           inputName="status"
         />
       </div>
+
       <div class="w-full flex items-end">
         <ActionButton type="submit" text="Submit" layout="sidebar" />
       </div>

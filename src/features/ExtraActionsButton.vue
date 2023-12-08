@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import ExtraActionsModal from './ExtraActionsModal.vue';
-import { EllipsisHorizontalIcon } from '@heroicons/vue/24/solid';
-import { vOnClickOutside } from '@vueuse/components';
+import { ref } from "vue";
+import ExtraActionsModal from "./ExtraActionsModal.vue";
+import { EllipsisHorizontalIcon } from "@heroicons/vue/24/solid";
+import { vOnClickOutside } from "@vueuse/components";
 
 const isOpen = ref(false);
 const toggled = ref(false);
@@ -32,5 +32,8 @@ const toggleElement = () => {
     <EllipsisHorizontalIcon class="h-8 w-8 text-white" />
   </button>
 
-  <ExtraActionsModal v-if="isOpen && toggled" v-on-click-outside="closeElement" />
+  <ExtraActionsModal
+    v-if="isOpen && toggled"
+    v-on-click-outside="closeElement"
+  />
 </template>

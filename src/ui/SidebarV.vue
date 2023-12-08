@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import DataUploader from '@/data/DataUploader.vue';
-import { UserCircleIcon } from '@heroicons/vue/24/solid';
+import DataUploader from "@/data/DataUploader.vue";
+import { UserCircleIcon } from "@heroicons/vue/24/solid";
 </script>
 <template>
   <aside
