@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import ActionButton from "@/ui/ActionButton.vue";
 import FormBlock from "@/ui/FormBlock.vue";
+
+const logger = (val) => {
+  console.log(val);
+};
 </script>
 
 <!-- streetAdress, city postCode country clientName clientEmail paymentDue status -->
@@ -18,19 +22,19 @@ import FormBlock from "@/ui/FormBlock.vue";
       />
     </div>
     <div class="flex items-center gap-5 mb-4">
-      <FormBlock name="Name" />
-      <FormBlock name="Email" />
+      <FormBlock @onLog="logger" name="Name" />
+      <FormBlock @onLog="logger" name="Email" />
     </div>
     <div class="flex items-center gap-5 mb-4">
-      <FormBlock name="Country" />
-      <FormBlock name="City" />
-      <FormBlock name="Post code" />
-      <FormBlock name="Street adress" />
+      <FormBlock @onLog="logger" name="Country" />
+      <FormBlock @onLog="logger" name="City" />
+      <FormBlock @onLog="logger" name="Post code" />
+      <FormBlock @onLog="logger" name="Street adress" />
     </div>
     <div class="flex gap-5 mb-4">
       <div class="w-full flex items-center justify-center gap-5">
-        <FormBlock name="Paymend due" />
-        <FormBlock name="Status" />
+        <FormBlock @onLog="logger" name="Paymend due" />
+        <FormBlock @onLog="logger" name="Status" />
       </div>
       <div class="w-full flex items-end">
         <ActionButton type="submit" text="Submit" layout="sidebar" />
