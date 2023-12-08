@@ -2,7 +2,7 @@
 const props = defineProps<{ name: string }>();
 </script>
 <template>
-  <label class="text-base font-semibold" :for="props.name">{{
+  <label class="text-base font-semibold mb-1" :for="props.name">{{
     props.name
   }}</label>
 </template>
