@@ -1,15 +1,18 @@
 <script setup lang="ts">
-const props = defineProps<{ name: string; for: string; labelName: string }>();
+const props = defineProps<{
+  name: string;
+  labelName: string;
+}>();
 </script>
 <template>
-  <div class="">
-    <label class="text-base font-semibold" :for="props.for">{{
-      props.labelName
+  <div class="flex flex-col">
+    <label class="text-base font-semibold" :for="props.name">{{
+      props.name
     }}</label>
 
     <input
       :name="props.name"
-      class="w-28 rounded-full bg-yellow-100 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:ring-opacity-50 sm:w-64 sm:focus:w-72 focus:outline-none focus:ring focus:ring-yellow-500"
+      class="w-28 rounded-md bg-stone-100 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:ring-opacity-50 sm:w-64 focus:outline-none focus:ring focus:indigo-400"
     />
   </div>
 </template>

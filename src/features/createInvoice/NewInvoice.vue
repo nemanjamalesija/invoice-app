@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FormBlockVue from "@/ui/FormBlock.vue";
+import FormBlock from "@/ui/FormBlock.vue";
 </script>
 
 <!-- streetAdress, city postCode country clientName clientEmail paymentDue status -->
@@ -7,18 +7,22 @@ import FormBlockVue from "@/ui/FormBlock.vue";
 <template>
   <form
     action=""
-    class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-500"
+    class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-gray-0 px-8 py-5 rounded-md flex flex-col gap-3"
   >
-    <FormBlockVue />
-    <FormBlockVue />
-    <FormBlockVue />
-    <FormBlockVue />
-    <FormBlockVue />
-    <FormBlockVue />
-    <FormBlockVue />
-    <FormBlockVue />
+    <button type="button" class="self-end">X</button>
+    <FormBlock name="Name" />
+    <FormBlock name="Email" />
+    <FormBlock name="Country" />
+    <FormBlock name="City" />
+    <FormBlock name="Post code" />
+    <FormBlock name="Street adress" />
+    <FormBlock name="Paymend due" />
+    <FormBlock name="Status" />
+
+    <button type="submit">Submit</button>
   </form>
-  <!-- <div
-    class="overlay absolute top-0 left-0 h-screen w-screen bg-red-400/5"
-  ></div> -->
+
+  <div
+    class="overlay absolute top-0 left-0 h-screen w-screen bg-white/10 blur-3xl z-10"
+  ></div>
 </template>
