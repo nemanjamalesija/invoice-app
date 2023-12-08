@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ActionButton from "@/ui/ActionButton.vue";
 import FormBlock from "@/ui/FormBlock.vue";
 </script>
 
@@ -7,9 +8,13 @@ import FormBlock from "@/ui/FormBlock.vue";
 <template>
   <form
     action=""
-    class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-gray-0 px-8 py-5 rounded-md flex flex-col gap-3"
+    class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-gray-0 px-10 pt-5 pb-10 rounded-md flex flex-col gap-3 min-w-[500px]"
   >
-    <button type="button" class="self-end">X</button>
+    <ActionButton
+      text="X"
+      type="button"
+      class="self-end text-xl font-semibold"
+    />
     <FormBlock name="Name" />
     <FormBlock name="Email" />
     <FormBlock name="Country" />
@@ -19,7 +24,7 @@ import FormBlock from "@/ui/FormBlock.vue";
     <FormBlock name="Paymend due" />
     <FormBlock name="Status" />
 
-    <button type="submit">Submit</button>
+    <ActionButton type="submit" text="Submit" layout="sidebar" />
   </form>
 
   <div

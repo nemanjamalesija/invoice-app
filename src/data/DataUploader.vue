@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import ActionButton from '@/ui/ActionButton.vue';
-import useCreateData from './useCreateData';
-import useDeleteData from './useDeleteData';
+import ActionButton from "@/ui/ActionButton.vue";
+import useCreateData from "./useCreateData";
+import useDeleteData from "./useDeleteData";
 
 const { isCreating, createData } = useCreateData();
 const { isDeleting, deleteData } = useDeleteData();
@@ -13,15 +13,17 @@ const { isDeleting, deleteData } = useDeleteData();
     >
       <h3 class="mb-2 font-bold">Sample data</h3>
       <ActionButton
+        type="submit"
         text="delete invoices"
-        type="sidebar"
+        layout="sidebar"
         :disabled="isDeleting"
         @click="deleteData"
       >
       </ActionButton>
       <ActionButton
+        type="submit"
         text="upload invoices"
-        type="sidebar"
+        layout="sidebar"
         :disabled="isCreating"
         @click="createData"
       >
