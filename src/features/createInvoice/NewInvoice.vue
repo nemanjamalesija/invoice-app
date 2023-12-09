@@ -4,7 +4,8 @@ import FormBlock from "@/ui/FormBlock.vue";
 import { ref } from "vue";
 import useGetItems from "./useGetItems";
 import FormItems from "./FormItems.vue";
-import FormLabel from "@/ui/FormLabel.vue";
+import FormBlockSelect from "@/ui/FormBlockSelect.vue";
+import DatePickInput from "@/ui/DatePickInput.vue";
 const { isPending, items } = useGetItems();
 
 console.log(items.value);
@@ -14,6 +15,18 @@ const formInputsValues = ref({});
 const storeFormValues = (key, val) => {
   formInputsValues.value = { ...formInputsValues.value, [key]: val };
 };
+
+const status = [
+  {
+    name: "pending",
+  },
+  {
+    name: "paid",
+  },
+  {
+    name: "cancelled",
+  },
+];
 </script>
 
 <!-- streetAdress, city postCode country clientName clientEmail paymentDue status -->
@@ -63,15 +76,12 @@ const storeFormValues = (key, val) => {
 
     <div class="flex gap-5 mb-4">
       <div class="w-full flex items-center justify-center gap-5">
-        <FormBlock
-          @onInput="storeFormValues"
-          labelName="Paymend due"
-          inputName="paymentDue"
-        />
-        <FormBlock
-          @onInput="storeFormValues"
+        <DatePickInput />
+
+        <FormBlockSelect
           labelName="Status"
           inputName="status"
+          :items="status"
         />
       </div>
 
