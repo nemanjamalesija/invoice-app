@@ -59,12 +59,7 @@ const storeFormValues = (key, val) => {
       />
     </div>
 
-    <div class="grid grid-cols-[1fr,1fr] gap-5 mb-4">
-      <div class="gap-5 mb-4 items-end">
-        <FormItems />
-      </div>
-      <div class="w-full">aaa</div>
-    </div>
+    <FormItems />
 
     <div class="flex gap-5 mb-4">
       <div class="w-full flex items-center justify-center gap-5">
