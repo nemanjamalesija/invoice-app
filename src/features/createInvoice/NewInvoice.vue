@@ -3,24 +3,23 @@ import ActionButton from "@/ui/ActionButton.vue";
 import FormBlock from "@/ui/FormBlock.vue";
 import { ref } from "vue";
 import useGetItems from "./useGetItems";
+import FormItems from "./FormItems.vue";
+import FormLabel from "@/ui/FormLabel.vue";
+const { isPending, items } = useGetItems();
+
+console.log(items.value);
 
 const formInputsValues = ref({});
 
 const storeFormValues = (key, val) => {
   formInputsValues.value = { ...formInputsValues.value, [key]: val };
 };
-
-const { isPending, items } = useGetItems();
-
-console.log(items.value);
 </script>
 
 <!-- streetAdress, city postCode country clientName clientEmail paymentDue status -->
 
 <template>
-  <div v-if="isPending">loading</div>
   <form
-    v-else
     action=""
     class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-gray-0 px-10 pt-5 pb-10 rounded-md gap-3 min-w-[1000px]"
   >
@@ -58,6 +57,13 @@ console.log(items.value);
         labelName="Street adress"
         inputName="streetAdress"
       />
+    </div>
+
+    <div class="grid grid-cols-[1fr,1fr] gap-5 mb-4">
+      <div class="gap-5 mb-4 items-end">
+        <FormItems />
+      </div>
+      <div class="w-full">aaa</div>
     </div>
 
     <div class="flex gap-5 mb-4">
