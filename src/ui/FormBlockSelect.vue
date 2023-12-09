@@ -11,7 +11,6 @@ const selectBaseClass =
     <FormLabel :labelName="props.labelName" :inputName="props.inputName" />
 
     <select v-if="props.inputName === 'items'" :class="selectBaseClass" name="">
-      <option default value="">Select item(s)</option>
       <option v-for="item in props.items" :key="item.id">
         {{ item.name }}&nbsp;{{ item.CPU }} core CPU / {{ item.GPU }} core GPU /
         {{ item.SSD }}&nbsp;{{ item.dataVolume }} SSD
