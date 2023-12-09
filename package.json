@@ -22,6 +22,7 @@
     "primevue": "^3.42.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5",
+    "vue-tailwind-datepicker": "^1.6.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {

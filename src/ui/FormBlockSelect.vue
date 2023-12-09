@@ -9,7 +9,7 @@ const selectBaseClass =
   "w-full rounded-md bg-stone-100 px-4 py-3 transition-all duration-300 placeholder:text-stone-400 focus:ring-opacity-50 focus:outline-none focus:ring focus:indigo-400 text-gray-700 text-sm";
 </script>
 <template>
-  <div>
+  <div class="w-full">
     <FormLabel :labelName="props.labelName" :inputName="props.inputName" />
 
     <select v-if="props.inputName === 'items'" :class="selectBaseClass" name="">
