@@ -6,6 +6,7 @@ import useGetItems from "./useGetItems";
 import FormItems from "./FormItems.vue";
 import FormBlockSelect from "@/ui/FormBlockSelect.vue";
 import DatePickInput from "@/ui/DatePickInput.vue";
+import LoadingSpinner from "@/ui/LoadingSpinner.vue";
 const { isPending, items } = useGetItems();
 
 console.log(items.value);
@@ -34,7 +35,7 @@ const status = [
 <template>
   <form
     action=""
-    class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-gray-0 px-10 pt-5 pb-10 rounded-md gap-3 min-w-[1000px]"
+    class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-[70%] z-20 bg-gray-0 px-10 pt-5 pb-10 rounded-md gap-3 min-w-[1000px]"
   >
     <div class="flex justify-end">
       <ActionButton
@@ -78,7 +79,9 @@ const status = [
       <div class="w-full flex items-center justify-center gap-5">
         <DatePickInput />
 
+        <LoadingSpinner v-if="isPending" />
         <FormBlockSelect
+          v-else
           labelName="Status"
           inputName="status"
           :items="status"

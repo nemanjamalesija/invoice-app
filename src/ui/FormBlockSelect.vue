@@ -3,8 +3,6 @@ import FormLabel from "./FormLabel.vue";
 
 const props = defineProps<{ items; labelName: string; inputName: string }>();
 
-console.log(props);
-
 const selectBaseClass =
   "w-full rounded-md bg-stone-100 px-4 py-3 transition-all duration-300 placeholder:text-stone-400 focus:ring-opacity-50 focus:outline-none focus:ring focus:indigo-400 text-gray-700 text-sm";
 </script>
