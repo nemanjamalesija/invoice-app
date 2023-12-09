@@ -2,18 +2,25 @@
 import ActionButton from "@/ui/ActionButton.vue";
 import FormBlock from "@/ui/FormBlock.vue";
 import { ref } from "vue";
+import useGetItems from "./useGetItems";
 
 const formInputsValues = ref({});
 
 const storeFormValues = (key, val) => {
   formInputsValues.value = { ...formInputsValues.value, [key]: val };
 };
+
+const { isPending, items } = useGetItems();
+
+console.log(items.value);
 </script>
 
 <!-- streetAdress, city postCode country clientName clientEmail paymentDue status -->
 
 <template>
+  <div v-if="isPending">loading</div>
   <form
+    v-else
     action=""
     class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-gray-0 px-10 pt-5 pb-10 rounded-md gap-3 min-w-[1000px]"
   >
