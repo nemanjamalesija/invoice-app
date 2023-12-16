@@ -9,8 +9,6 @@ import DatePickInput from "@/ui/DatePickInput.vue";
 import LoadingSpinner from "@/ui/LoadingSpinner.vue";
 const { isPending, items } = useGetItems();
 
-console.log(items.value);
-
 const formInputsValues = ref({});
 
 const storeFormValues = (key, val) => {
